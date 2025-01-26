@@ -96,17 +96,9 @@ function ContactPage() {
                   Email Us
                 </h5>
                 <ul className="list-unstyled">
-                  <li className="mb-3">
-                    <strong>General Inquiries:</strong><br />
-                    info.ieee@spjain.org
-                  </li>
-                  <li className="mb-3">
-                    <strong>Membership:</strong><br />
-                    membership.ieee@spjain.org
-                  </li>
                   <li>
-                    <strong>Events:</strong><br />
-                    events.ieee@spjain.org
+                    <strong>For All Inquiries:</strong><br />
+                    ieeestudentbranch@spjain.org
                   </li>
                 </ul>
               </div>
@@ -120,4 +112,3 @@ function ContactPage() {
 }
 
 export default ContactPage;
-
