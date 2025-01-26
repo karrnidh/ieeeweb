@@ -38,7 +38,7 @@ export default function Titlebar() {
                 <i className="bi bi-envelope" style={iconStyle}></i> {/* Bootstrap Icons: Email */}
                 <div>
                   <div>Email Support</div>
-                  <div>abc@ieee.org</div>
+                  <div>ieeestudentbranch@spjain.org</div>
                 </div>
               </div>
             </div>
