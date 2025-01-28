@@ -6,15 +6,15 @@ export default function Titlebar() {
 
   return (
     <div>
-      <nav className="navbar navbar-expand-lg" style={{ backgroundColor: '#C4A48C' }}> {/* Slightly darker pastel brown */}
+      <nav className="navbar navbar-expand-lg" style={{ backgroundColor: '#C4A48C' }}>
         <div className="container-fluid">
-          {/* First row: Logo and SP Jain text */}
-          <div className="row align-items-center">
-            <div className="col-12 col-md-6 d-flex align-items-center mb-3 mb-md-0">
+          <div className="row w-100 align-items-center">
+            {/* First Row: Logo and Title */}
+            <div className="col-12 col-md-6 d-flex align-items-center">
               <img
-                src="/spjLogo.jpg" // Path relative to the public folder
+                src="/spjLogo.jpg"
                 alt="SP Jain Logo"
-                style={{ width: '80px', height: '80px', marginRight: '10px' }} // Smaller on mobile
+                style={{ width: '80px', height: '80px', marginRight: '10px' }}
               />
               <a
                 className="navbar-brand text-wrap"
@@ -25,25 +25,23 @@ export default function Titlebar() {
               </a>
             </div>
 
-            {/* Second row: Location and Email Information */}
-            <div className="col-12 col-md-6 d-flex justify-content-md-end">
-              <div className="d-flex flex-column flex-md-row align-items-start text-start text-md-end">
-                {/* Location Section */}
-                <div className="d-flex flex-row align-items-center mb-2 mb-md-0 me-md-4">
-                  <i className="bi bi-geo-alt" style={iconStyle}></i>
-                  <div>
-                    <div style={{ fontWeight: 'bold' }}>Location</div>
-                    <div>NSW, Australia</div>
-                  </div>
+            {/* Second Row: Location and Email (Aligned Right on Desktop) */}
+            <div className="col-12 col-md-6 d-flex flex-column flex-md-row justify-content-md-end align-items-start align-items-md-center text-md-end mt-3 mt-md-0">
+              {/* Location Section */}
+              <div className="d-flex align-items-center me-md-4 mb-2 mb-md-0">
+                <i className="bi bi-geo-alt" style={iconStyle}></i>
+                <div>
+                  <div style={{ fontWeight: 'bold' }}>Location</div>
+                  <div>NSW, Australia</div>
                 </div>
+              </div>
 
-                {/* Email Support Section */}
-                <div className="d-flex flex-row align-items-center">
-                  <i className="bi bi-envelope" style={iconStyle}></i>
-                  <div>
-                    <div style={{ fontWeight: 'bold' }}>Email Support</div>
-                    <div>ieeestudentbranch@spjain.org</div>
-                  </div>
+              {/* Email Section */}
+              <div className="d-flex align-items-center">
+                <i className="bi bi-envelope" style={iconStyle}></i>
+                <div>
+                  <div style={{ fontWeight: 'bold' }}>Email Support</div>
+                  <div>ieeestudentbranch@spjain.org</div>
                 </div>
               </div>
             </div>
