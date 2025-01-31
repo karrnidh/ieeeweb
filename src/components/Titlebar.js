@@ -1,7 +1,32 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 export default function Titlebar() {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkScreenSize = () => {
+      setIsMobile(window.innerWidth <= 768); // Mobile if width is less than or equal to 768px
+    };
+
+    checkScreenSize();
+    window.addEventListener('resize', checkScreenSize);
+
+    return () => {
+      window.removeEventListener('resize', checkScreenSize);
+    };
+  }, []);
+
   const iconStyle = { fontSize: '20px', marginRight: '5px', color: '#333' };
+
+  // Styles for mobile view
+  const mobileTextStyle = {
+    fontSize: '0.8rem', // Reduced text size for mobile
+  };
+
+  const mobileIconStyle = {
+    fontSize: '18px', // Reduced icon size for mobile
+    marginRight: '8px', // Increased space between the icon and the text
+  };
 
   return (
     <div>
@@ -25,11 +50,11 @@ export default function Titlebar() {
             </div>
 
             {/* Second Row: Location and Email (Side-by-Side on All Screens) */}
-            <div className="col-12 col-md-6 d-flex flex-row justify-content-between justify-content-md-end align-items-center mt-3 mt-md-0">
+            <div className={`col-12 ${isMobile ? '' : 'col-md-6'} d-flex flex-row justify-content-between justify-content-md-end align-items-center mt-3 mt-md-0`}>
               {/* Location Section */}
               <div className="d-flex align-items-center me-3">
-                <i className="bi bi-geo-alt" style={iconStyle}></i>
-                <div>
+                <i className="bi bi-geo-alt" style={isMobile ? mobileIconStyle : iconStyle}></i>
+                <div style={isMobile ? mobileTextStyle : {}}>
                   <div style={{ fontWeight: 'bold' }}>Location</div>
                   <div>NSW, Australia</div>
                 </div>
@@ -37,8 +62,8 @@ export default function Titlebar() {
 
               {/* Email Section */}
               <div className="d-flex align-items-center">
-                <i className="bi bi-envelope" style={iconStyle}></i>
-                <div>
+                <i className="bi bi-envelope" style={isMobile ? mobileIconStyle : iconStyle}></i>
+                <div style={isMobile ? mobileTextStyle : {}}>
                   <div style={{ fontWeight: 'bold' }}>Email Support</div>
                   <div>ieeestudentbranch@spjain.org</div>
                 </div>
