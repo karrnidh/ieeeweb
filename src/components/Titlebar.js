@@ -2,7 +2,6 @@ import React from 'react';
 
 export default function Titlebar() {
   const iconStyle = { fontSize: '20px', marginRight: '5px', color: '#333' };
-  const textStyle = { display: 'flex', alignItems: 'center', marginBottom: '5px' };
 
   return (
     <div>
@@ -25,10 +24,10 @@ export default function Titlebar() {
               </a>
             </div>
 
-            {/* Second Row: Location and Email (Aligned Right on Desktop) */}
-            <div className="col-12 col-md-6 d-flex flex-column flex-md-row justify-content-md-end align-items-start align-items-md-center text-md-end mt-3 mt-md-0">
+            {/* Second Row: Location and Email (Side-by-Side on All Screens) */}
+            <div className="col-12 col-md-6 d-flex flex-row justify-content-between justify-content-md-end align-items-center mt-3 mt-md-0">
               {/* Location Section */}
-              <div className="d-flex align-items-center me-md-4 mb-2 mb-md-0">
+              <div className="d-flex align-items-center me-3">
                 <i className="bi bi-geo-alt" style={iconStyle}></i>
                 <div>
                   <div style={{ fontWeight: 'bold' }}>Location</div>
@@ -45,6 +44,7 @@ export default function Titlebar() {
                 </div>
               </div>
             </div>
+
           </div>
         </div>
       </nav>
