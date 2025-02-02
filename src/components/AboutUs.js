@@ -32,84 +32,98 @@ export default function AboutUs() {
   return (
     <div style={{ fontFamily: 'Roboto, sans-serif', backgroundColor: '#f8f9fa' }}>
       {/* Header */}
-      <div
-        style={{
-          background: 'linear-gradient(to right, rgb(126, 71, 29), rgb(230, 175, 139))',
-          color: 'white',
-          padding: '20px',
-          textAlign: 'center',
-          position: 'relative',
-          boxShadow: '0px 4px 6px rgb(227, 197, 167)',
-        }}
-      >
-        <h1 style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 700, fontSize: 55 }}>ABOUT US</h1>
+      <div style={{
+        background: 'linear-gradient(to right, rgb(126, 71, 29), rgb(230, 175, 139))',
+        color: 'white',
+        padding: '20px',
+        textAlign: 'center',
+        boxShadow: '0px 4px 6px rgb(227, 197, 167)'
+      }}>
+        <h1 style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 700, fontSize: 40 }}>ABOUT US</h1>
       </div>
 
-      <div style={{ display: 'flex' }}>
-        {/* Navigation Bar */}
-        <nav
-          style={{
-            width: '20%',
-            backgroundColor: '#3E2712',
-            color: 'white',
-            padding: '20px',
-            overflowY: 'auto',
-            height: '100vh',
-            position: 'sticky',
-            top: '0',
-          }}
-        >
-          <ul style={{ listStyleType: 'none', padding: 0 }}>
-            {Object.keys(sections).map((sectionKey, index) => (
-              <li
-                key={index}
-                style={{
-                  marginBottom: '10px',
-                  padding: '10px',
-                  backgroundColor:
-                    activeSection === sectionKey.replace(/\s+/g, '-').toLowerCase() ? '#5F3224' : 'transparent',
-                  borderRadius: '5px',
-                  cursor: 'pointer',
-                  color:
-                    activeSection === sectionKey.replace(/\s+/g, '-').toLowerCase() ? 'white' : '#F5F5DC',
-                }}
-                onClick={() => handleClick(sectionKey)}
-              >
-                {sectionKey}
-              </li>
-            ))}
-          </ul>
-        </nav>
+      {/* Navigation Bar */}
+      <nav style={{
+        backgroundColor: '#3E2712',
+        color: 'white',
+        padding: '10px 20px',
+        textAlign: 'center',
+        position: 'sticky',
+        top: '0',
+        zIndex: 1000,
+        display: 'flex', // Align items in a row
+        justifyContent: 'center', // Center the items horizontally
+        alignItems: 'center' // Align items vertically in the center if needed
+      }}>
+        {Object.keys(sections).map((sectionKey, index) => (
+          <span key={index}
+            style={{
+              margin: '0 5px', // Reduced margin to bring the items closer
+              padding: '8px',
+              cursor: 'pointer',
+              fontSize: '16px', // Increased font size for laptop
+              color: activeSection === sectionKey.replace(/\s+/g, '-').toLowerCase() ? 'rgb(189, 129, 99)' : 'white',
+              whiteSpace: 'nowrap'  // Prevent wrapping of section titles
+            }}
+            onClick={() => handleClick(sectionKey)}>
+            {sectionKey}
+          </span>
+        ))}
+      </nav>
 
-        {/* Content Area */}
-        <main
-          style={{
-            width: '80%',
-            padding: '40px',
-            overflowY: 'auto',
-            color: '#333',
-            backgroundColor: '#f8f9fa',
-            paddingTop: '40px',
-          }}
-        >
-          {Object.keys(sections).map((sectionKey, index) => (
-            <React.Fragment key={index}>
-              <section
-                id={sectionKey.replace(/\s+/g, '-').toLowerCase()}
-                style={{ marginBottom: '40px' }}
-              >
-                <h4 style={{ fontFamily: 'Montserrat, sans-serif', borderBottom: '2px solid #ddd', paddingBottom: '10px' }}>
-                  {sectionKey}
-                </h4>
-                <p style={{ fontSize: '18px', lineHeight: '1.8', marginTop: '20px', whiteSpace: 'pre-wrap' }}>
-                  {sections[sectionKey]}
-                </p>
-              </section>
-              <hr style={{ border: '1px solid #ddd', margin: '20px 0' }} />
-            </React.Fragment>
-          ))}
-        </main>
-      </div>
+      {/* Content Area */}
+      <main style={{
+        padding: '20px',
+        color: '#333',
+        backgroundColor: '#f8f9fa',
+        textAlign: 'center'
+      }}>
+        {Object.keys(sections).map((sectionKey, index) => (
+          <section key={index} id={sectionKey.replace(/\s+/g, '-').toLowerCase()} style={{ marginBottom: '40px' }}>
+            <h4 style={{
+              fontFamily: 'Montserrat, sans-serif',
+              borderBottom: '2px solid #ddd',
+              paddingBottom: '10px',
+              display: 'inline-block' // Prevent full-width underline
+            }}>
+              {sectionKey}
+            </h4>
+            <p style={{
+              fontSize: '18px',
+              lineHeight: '1.8',
+              marginTop: '20px',
+              maxWidth: '800px', // Prevent text from spanning too wide
+              marginLeft: 'auto',
+              marginRight: 'auto'
+            }}>
+              {sections[sectionKey]}
+            </p>
+          </section>
+        ))}
+      </main>
+
+      {/* Embedded CSS for Mobile Font Size Adjustments */}
+      <style>
+        {`
+          @media (max-width: 768px) {
+            nav span {
+              font-size: 12px;  // Reduce font size for phone
+              white-space: nowrap;  // Ensure all items stay in one line
+            }
+            h1 {
+              font-size: 30px;  // Reduce header size for mobile
+            }
+            h4 {
+              font-size: 16px;  // Reduce subtitle size for mobile
+            }
+            p {
+              font-size: 14px;  // Reduce text size for better fit on small screens
+              line-height: 1.4;  // Reduce line height for smaller spacing
+              letter-spacing: -0.5px;  // Reduce letter-spacing for compact text
+            }
+          }
+        `}
+      </style>
     </div>
   );
 }

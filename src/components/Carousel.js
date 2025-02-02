@@ -141,6 +141,32 @@ export default function Carousel() {
       >
         {/* This section can be used for additional content if necessary */}
       </section>
+
+      {/* Mobile UI Adjustments */}
+      <style>
+        {`
+          @media (max-width: 768px) {
+            .carousel-caption {
+              position: absolute;
+              top: 50%; /* Position text at the center vertically */
+              left: 50%; /* Position text at the center horizontally */
+              transform: translate(-50%, -50%); /* Center the text */
+              background-color: rgba(0, 0, 0, 0.5); /* Slight background for better visibility */
+              padding: 20px;
+              width: 90%; /* Take up 90% of the screen width */
+              text-align: center;
+            }
+
+            .carousel-caption h5 {
+              font-size: 18px; /* Adjust font size for mobile */
+            }
+
+            .carousel-caption p {
+              font-size: 14px; /* Adjust font size for mobile */
+            }
+          }
+        `}
+      </style>
     </div>
   );
 }
