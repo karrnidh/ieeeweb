@@ -114,7 +114,7 @@ export default function AboutUs() {
               font-size: 30px;  // Reduce header size for mobile
             }
             h4 {
-              font-size: 16px;  // Reduce subtitle size for mobile
+              font-size: 22px;  // Reduce subtitle size for mobile
             }
             p {
               font-size: 14px;  // Reduce text size for better fit on small screens

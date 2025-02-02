@@ -107,6 +107,12 @@ export default function ExecutiveCommittee() {
       imageUrl: 'c.jpeg',
       linkedinUrl: 'https://www.linkedin.com/in/karrnidh-arora-048913271?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app',
     },
+    {
+      name: 'Krishil Parmar',
+      position: 'Secretary',
+      imageUrl: 'krishil.jpeg', // Add Krishil's image URL
+      linkedinUrl: 'https://www.linkedin.com/in/krishil-parmar-596636348/', // Add Krishil's LinkedIn URL
+    },
   ];
 
   return (
@@ -133,9 +139,52 @@ export default function ExecutiveCommittee() {
       {/* Executive Committee Members Section */}
       <div style={styles.teamSection}>
         <div className="container mt-2"> {/* Further reduced margin-top */}
+          <div className="row d-flex justify-content-center">
+            {/* First Row: Purvi, Suvrat */}
+            {[members[0], members[1]].map((member, index) => (
+              <div className="col-md-3 mb-3" key={index}>
+                <div className="card" style={styles.cardContainer}>
+                  <div
+                    style={styles.memberImageContainer}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.borderColor = styles.memberImageHover.borderColor;
+                      e.currentTarget.style.transform = styles.memberImageHover.transform;
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.borderColor = 'transparent';
+                      e.currentTarget.style.transform = 'scale(1)';
+                    }}
+                  >
+                    <img
+                      src={member.imageUrl}
+                      alt={member.name}
+                      style={styles.memberImage}
+                    />
+                  </div>
+                  <div className="card-body" style={styles.cardBody}>
+                    <h5 className="card-title">{member.name}</h5>
+                    <p className="card-text">{member.position}</p>
+                    <a
+                      href={member.linkedinUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={styles.linkedInButton}
+                    >
+                      <img
+                        src="linkedin.jpg"
+                        alt="LinkedIn logo"
+                        style={styles.linkedInLogo}
+                      />
+                    </a>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
           <div className="row">
-            {members.map((member, index) => (
-              <div className="col-md-3 mb-3" key={index}> {/* Adjusted for vertical cards */}
+            {/* Second Row: Aayush, Karrnidh, Krishil */}
+            {[members[2], members[3], members[4]].map((member, index) => (
+              <div className="col-md-4 mb-3" key={index}>
                 <div className="card" style={styles.cardContainer}>
                   <div
                     style={styles.memberImageContainer}
